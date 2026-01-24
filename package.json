@@ -1,0 +1,25 @@
+{
+  "name": "codigosinsiesta-examples",
+  "version": "1.0.0",
+  "description": "Code examples from Código Sin Siesta documentation and blog posts",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Run tests in individual example directories\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codigosinsiesta/codigosinsiesta-examples.git"
+  },
+  "keywords": [
+    "examples",
+    "tutorials",
+    "ai",
+    "mcp",
+    "agents"
+  ],
+  "author": "Código Sin Siesta",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0"
+  }
+}
