@@ -10,49 +10,49 @@ const server = new FastMCP({
 // Definir tools
 server.addTool({
   name: 'add',
-  description: 'Add two numbers together',
+  description: 'Sumar dos números',
   parameters: z.object({
-    a: z.number().describe('First number'),
-    b: z.number().describe('Second number')
+    a: z.number().describe('Primer número'),
+    b: z.number().describe('Segundo número')
   }),
   execute: async ({ a, b }) => {
     const result = a + b;
-    return `Result: ${a} + ${b} = ${result}`;
+    return `Resultado: ${a} + ${b} = ${result}`;
   }
 });
 
 server.addTool({
   name: 'multiply',
-  description: 'Multiply two numbers',
+  description: 'Multiplicar dos números',
   parameters: z.object({
-    a: z.number().describe('First number'),
-    b: z.number().describe('Second number')
+    a: z.number().describe('Primer número'),
+    b: z.number().describe('Segundo número')
   }),
   execute: async ({ a, b }) => {
     const result = a * b;
-    return `Result: ${a} × ${b} = ${result}`;
+    return `Resultado: ${a} × ${b} = ${result}`;
   }
 });
 
 server.addTool({
   name: 'power',
-  description: 'Calculate power (a^b)',
+  description: 'Calcular potencia (a^b)',
   parameters: z.object({
-    base: z.number().describe('Base number'),
-    exponent: z.number().describe('Exponent (integer)'),
-    validate: z.boolean().optional().default(true).describe('Validate inputs')
+    base: z.number().describe('Número base'),
+    exponent: z.number().describe('Exponente (entero)'),
+    validate: z.boolean().optional().default(true).describe('Validar entradas')
   }),
   execute: async ({ base, exponent, validate }) => {
     if (validate && !Number.isInteger(exponent)) {
-      throw new Error('Exponent must be an integer');
+      throw new Error('El exponente debe ser un entero');
     }
 
     if (validate && exponent < 0) {
-      throw new Error('Negative exponents not supported');
+      throw new Error('Los exponentes negativos no están soportados');
     }
 
     const result = Math.pow(base, exponent);
-    return `Result: ${base}^${exponent} = ${result}`;
+    return `Resultado: ${base}^${exponent} = ${result}`;
   }
 });
 

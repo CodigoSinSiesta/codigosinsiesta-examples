@@ -1,0 +1,39 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  },
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read(./**)",
+      "Write(./**)",
+      "Edit(./**)",
+      "Glob(./**)",
+      "Grep(./**)",
+      "Read(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/**)",
+      "Write(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/**)",
+      "Edit(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/**)",
+      "Glob(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/**)",
+      "Grep(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/**)",
+      "Read(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/.auto-claude/specs/001-cambio-de-idioma/**)",
+      "Write(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/.auto-claude/specs/001-cambio-de-idioma/**)",
+      "Edit(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/worktrees/tasks/001-cambio-de-idioma/.auto-claude/specs/001-cambio-de-idioma/**)",
+      "Read(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/**)",
+      "Write(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/**)",
+      "Edit(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/**)",
+      "Glob(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/**)",
+      "Grep(/Users/alejandro/dev/codigosinsiesta-examples/.auto-claude/**)",
+      "Bash(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "mcp__context7__resolve-library-id(*)",
+      "mcp__context7__get-library-docs(*)",
+      "mcp__graphiti-memory__search_nodes(*)",
+      "mcp__graphiti-memory__search_facts(*)",
+      "mcp__graphiti-memory__add_episode(*)",
+      "mcp__graphiti-memory__get_episodes(*)",
+      "mcp__graphiti-memory__get_entity_edge(*)"
+    ]
+  }
+}
