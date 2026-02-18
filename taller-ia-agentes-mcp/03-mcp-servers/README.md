@@ -1,64 +1,64 @@
-# 03 - Calculator MCP Server
+# 03 - Servidor MCP de Calculadora
 
-A Model Context Protocol (MCP) server that provides calculator tools and calculation history resources. This example demonstrates how to build an MCP server using Fast-MCP that can be integrated with Claude Desktop and other MCP clients.
+Un servidor Model Context Protocol (MCP) que proporciona herramientas de calculadora y recursos de historial de cálculos. Este ejemplo demuestra cómo construir un servidor MCP usando Fast-MCP que puede integrarse con Claude Desktop y otros clientes MCP.
 
-## 🎯 What You'll Learn
+## 🎯 Lo Que Aprenderás
 
-- **MCP Server Architecture**: How to build a server that exposes tools to AI clients
-- **Fast-MCP Framework**: Using Fast-MCP for quick server development
-- **Tool Definition**: Create tools with schema validation using Zod
-- **Resource Management**: Expose calculation history as a resource
-- **STDIO Transport**: Communicate with clients via standard input/output
-- **Error Handling**: Validate inputs and handle calculation errors
+- **Arquitectura de Servidor MCP**: Cómo construir un servidor que expone herramientas a clientes de IA
+- **Framework Fast-MCP**: Uso de Fast-MCP para desarrollo rápido de servidores
+- **Definición de Herramientas**: Crear herramientas con validación de esquema usando Zod
+- **Gestión de Recursos**: Exponer el historial de cálculos como un recurso
+- **Transporte STDIO**: Comunicarse con clientes a través de entrada/salida estándar
+- **Manejo de Errores**: Validar entradas y manejar errores de cálculo
 
-## ✨ Features
+## ✨ Características
 
-- 🧮 **Basic Arithmetic**: Add, multiply, and power operations
-- 📊 **Expression Calculator**: Evaluate complex mathematical expressions
-- 📝 **Calculation History**: Store and retrieve past calculations
-- 🔍 **History Filtering**: Search calculations by operation type
-- 🛡️ **Input Validation**: Schema validation with Zod
-- 📦 **Resource Exposure**: History accessible as MCP resource
+- 🧮 **Aritmética Básica**: Operaciones de suma, multiplicación y potencia
+- 📊 **Calculadora de Expresiones**: Evaluar expresiones matemáticas complejas
+- 📝 **Historial de Cálculos**: Almacenar y recuperar cálculos anteriores
+- 🔍 **Filtrado de Historial**: Buscar cálculos por tipo de operación
+- 🛡️ **Validación de Entrada**: Validación de esquema con Zod
+- 📦 **Exposición de Recursos**: Historial accesible como recurso MCP
 
-## 🚀 Quick Start
+## 🚀 Inicio Rápido
 
-### Prerequisites
+### Requisitos Previos
 
-- Node.js 20.0 or higher
-- npm or yarn
-- Claude Desktop or another MCP-compatible client
+- Node.js 20.0 o superior
+- npm o yarn
+- Claude Desktop u otro cliente compatible con MCP
 
-### Installation
+### Instalación
 
-1. Install dependencies:
+1. Instala las dependencias:
    ```bash
    npm install
    ```
 
-2. Configure environment (optional):
+2. Configura el entorno (opcional):
    ```bash
    cp .env.example .env
    ```
 
-### Run the Server
+### Ejecutar el Servidor
 
-**Standalone mode** (for testing):
+**Modo independiente** (para pruebas):
 ```bash
 npm start
 ```
 
-**Development mode** with auto-reload:
+**Modo de desarrollo** con recarga automática:
 ```bash
 npm run dev
 ```
 
-## 🔌 Integration with Claude Desktop
+## 🔌 Integración con Claude Desktop
 
-To use this MCP server with Claude Desktop, add it to your configuration file:
+Para usar este servidor MCP con Claude Desktop, agrégalo a tu archivo de configuración:
 
 ### macOS/Linux
 
-Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+Edita `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ```json
 {
@@ -66,7 +66,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
     "calculator": {
       "command": "node",
       "args": [
-        "/absolute/path/to/03-mcp-servers/dist/server.js"
+        "/ruta/absoluta/a/03-mcp-servers/dist/server.js"
       ]
     }
   }
@@ -75,11 +75,11 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ### Windows
 
-Edit `%APPDATA%\Claude\claude_desktop_config.json` with the same structure.
+Edita `%APPDATA%\Claude\claude_desktop_config.json` con la misma estructura.
 
-### Using tsx instead of building
+### Usando tsx en lugar de compilar
 
-For development, you can use tsx directly:
+Para desarrollo, puedes usar tsx directamente:
 
 ```json
 {
@@ -89,108 +89,108 @@ For development, you can use tsx directly:
       "args": [
         "-y",
         "tsx",
-        "/absolute/path/to/03-mcp-servers/src/server.ts"
+        "/ruta/absoluta/a/03-mcp-servers/src/server.ts"
       ]
     }
   }
 }
 ```
 
-After updating the config, restart Claude Desktop.
+Después de actualizar la configuración, reinicia Claude Desktop.
 
-## 💬 Available Tools
+## 💬 Herramientas Disponibles
 
 ### 1. add
 
-Add two numbers together.
+Suma dos números.
 
-**Parameters:**
-- `a` (number): First number
-- `b` (number): Second number
+**Parámetros:**
+- `a` (number): Primer número
+- `b` (number): Segundo número
 
-**Example:**
+**Ejemplo:**
 ```
-Result: 5 + 3 = 8
+Resultado: 5 + 3 = 8
 ```
 
 ### 2. multiply
 
-Multiply two numbers.
+Multiplica dos números.
 
-**Parameters:**
-- `a` (number): First number
-- `b` (number): Second number
+**Parámetros:**
+- `a` (number): Primer número
+- `b` (number): Segundo número
 
-**Example:**
+**Ejemplo:**
 ```
-Result: 4 × 6 = 24
+Resultado: 4 × 6 = 24
 ```
 
 ### 3. power
 
-Calculate power (a^b).
+Calcula la potencia (a^b).
 
-**Parameters:**
-- `base` (number): Base number
-- `exponent` (number): Exponent (must be integer)
-- `validate` (boolean, optional): Enable input validation (default: true)
+**Parámetros:**
+- `base` (number): Número base
+- `exponent` (number): Exponente (debe ser entero)
+- `validate` (boolean, opcional): Habilitar validación de entrada (predeterminado: true)
 
-**Example:**
+**Ejemplo:**
 ```
-Result: 2^8 = 256
+Resultado: 2^8 = 256
 ```
 
 ### 4. calculate
 
-Evaluate a mathematical expression and store in history.
+Evalúa una expresión matemática y la guarda en el historial.
 
-**Parameters:**
-- `expression` (string): Mathematical expression (e.g., "2 + 3 * 4")
-- `description` (string, optional): Description of the calculation
+**Parámetros:**
+- `expression` (string): Expresión matemática (ej., "2 + 3 * 4")
+- `description` (string, opcional): Descripción del cálculo
 
-**Returns:**
-- Calculation result
-- Unique calculation ID
-- History resource URI
+**Devuelve:**
+- Resultado del cálculo
+- ID único del cálculo
+- URI del recurso del historial
 
-**Example:**
+**Ejemplo:**
 ```
-Expression: (5 + 3) * 2 - 4
-Result: 12
+Expresión: (5 + 3) * 2 - 4
+Resultado: 12
 ID: calc_1234567890_abcdef123
 ```
 
 ### 5. get_history
 
-Retrieve calculation history.
+Recupera el historial de cálculos.
 
-**Parameters:**
-- `limit` (number, optional): Number of recent calculations (1-50, default: 10)
-- `operation` (string, optional): Filter by operation type
+**Parámetros:**
+- `limit` (number, opcional): Número de cálculos recientes (1-50, predeterminado: 10)
+- `operation` (string, opcional): Filtrar por tipo de operación
 
-**Returns:**
-- Array of recent calculations
-- Total count
-- Filter status
+**Devuelve:**
+- Array de cálculos recientes
+- Conteo total
+- Estado del filtro
 
-## 📁 Project Structure
+## 📁 Estructura del Proyecto
 
 ```
 03-mcp-servers/
 ├── src/
-│   ├── server.ts             # Main MCP server implementation
-│   └── tools.ts              # Tool definitions and logic
-├── .env.example              # Environment template
-├── package.json              # Dependencies
-├── tsconfig.json             # TypeScript config
-└── README.md                 # This file
+│   ├── server.ts             # Implementación principal del servidor MCP
+│   └── tools.ts              # Definiciones y lógica de herramientas
+├── .env.example              # Plantilla de entorno
+├── package.json              # Dependencias
+├── tsconfig.json             # Configuración de TypeScript
+└── README.md                 # Este archivo
 ```
 
-## 🔧 How It Works
+## 🔧 Cómo Funciona
 
-### 1. MCP Server Initialization
+### 1. Inicialización del Servidor MCP
 
-The server is created using Fast-MCP:
+El servidor se crea usando Fast-MCP:
 
 ```typescript
 const server = new FastMCP({
@@ -200,9 +200,9 @@ const server = new FastMCP({
 });
 ```
 
-### 2. Tool Registration
+### 2. Registro de Herramientas
 
-Tools are registered with schema validation:
+Las herramientas se registran con validación de esquema:
 
 ```typescript
 server.addTool({
@@ -222,19 +222,19 @@ server.addTool({
 });
 ```
 
-### 3. STDIO Communication
+### 3. Comunicación STDIO
 
-The server uses STDIO transport to communicate with MCP clients:
+El servidor usa transporte STDIO para comunicarse con clientes MCP:
 
 ```typescript
 server.start({
-  transport: 'stdio'  // Standard input/output communication
+  transport: 'stdio'  // Comunicación de entrada/salida estándar
 }).catch(console.error);
 ```
 
-### 4. State Management
+### 4. Gestión de Estado
 
-Calculation history is stored in memory:
+El historial de cálculos se almacena en memoria:
 
 ```typescript
 export let calculationHistory: Array<{
@@ -245,29 +245,29 @@ export let calculationHistory: Array<{
 }> = [];
 ```
 
-**Note:** In production, consider persisting to a database.
+**Nota:** En producción, considera persistir en una base de datos.
 
-## 🎓 Key Concepts
+## 🎓 Conceptos Clave
 
-### MCP Protocol
+### Protocolo MCP
 
-The Model Context Protocol (MCP) allows AI applications to:
-- **Discover Tools**: Clients can list available tools
-- **Execute Tools**: Invoke tools with validated parameters
-- **Access Resources**: Retrieve data like calculation history
-- **Bidirectional Communication**: STDIO enables two-way messaging
+El Model Context Protocol (MCP) permite que las aplicaciones de IA:
+- **Descubran Herramientas**: Los clientes pueden listar las herramientas disponibles
+- **Ejecuten Herramientas**: Invocar herramientas con parámetros validados
+- **Accedan a Recursos**: Recuperar datos como el historial de cálculos
+- **Comunicación Bidireccional**: STDIO permite mensajes bidireccionales
 
-### Fast-MCP Framework
+### Framework Fast-MCP
 
-Fast-MCP simplifies MCP server development:
-- **Type-safe**: Full TypeScript support with Zod validation
-- **Lightweight**: Minimal overhead and quick startup
-- **Standard Compliant**: Follows MCP specification
-- **Easy Integration**: Works with Claude Desktop and other clients
+Fast-MCP simplifica el desarrollo de servidores MCP:
+- **Type-Safe**: Soporte completo de TypeScript con validación Zod
+- **Ligero**: Sobrecarga mínima y inicio rápido
+- **Compatible con Estándares**: Sigue la especificación MCP
+- **Integración Fácil**: Funciona con Claude Desktop y otros clientes
 
-### Tool Schema Validation
+### Validación de Esquema de Herramientas
 
-Zod schemas ensure type safety and clear error messages:
+Los esquemas Zod aseguran seguridad de tipos y mensajes de error claros:
 
 ```typescript
 parameters: z.object({
@@ -277,90 +277,90 @@ parameters: z.object({
 })
 ```
 
-## 🔍 Testing the Server
+## 🔍 Probar el Servidor
 
-### Manual Testing
+### Pruebas Manuales
 
-1. Start the server in development mode:
+1. Inicia el servidor en modo de desarrollo:
    ```bash
    npm run dev
    ```
 
-2. The server will wait for MCP protocol messages on stdin
+2. El servidor esperará mensajes del protocolo MCP en stdin
 
-3. Test with Claude Desktop or use the MCP Inspector tool
+3. Prueba con Claude Desktop o usa la herramienta MCP Inspector
 
-### Using MCP Inspector
+### Usando MCP Inspector
 
-Install the MCP Inspector for interactive testing:
+Instala el MCP Inspector para pruebas interactivas:
 
 ```bash
 npx @modelcontextprotocol/inspector node src/server.ts
 ```
 
-This opens a web interface where you can:
-- Browse available tools
-- Test tool execution
-- View calculation history
-- Inspect request/response messages
+Esto abre una interfaz web donde puedes:
+- Navegar por las herramientas disponibles
+- Probar la ejecución de herramientas
+- Ver el historial de cálculos
+- Inspeccionar mensajes de solicitud/respuesta
 
-## 🛠️ Development
+## 🛠️ Desarrollo
 
 ```bash
-# Run in development mode with auto-reload
+# Ejecutar en modo de desarrollo con recarga automática
 npm run dev
 
-# Type-check without building
+# Verificación de tipos sin compilar
 npm run typecheck
 
-# Build the project
+# Compilar el proyecto
 npm run build
 ```
 
-## 🚨 Important Notes
+## 🚨 Notas Importantes
 
-### Security Considerations
+### Consideraciones de Seguridad
 
-The `calculate` tool uses `eval()` for demonstration purposes. **In production:**
+La herramienta `calculate` usa `eval()` para fines de demostración. **En producción:**
 
-- ❌ **Never use eval()** with user input
-- ✅ Use a safe expression parser like [math.js](https://mathjs.org/) or [expr-eval](https://www.npmjs.com/package/expr-eval)
+- ❌ **Nunca uses eval()** con entrada de usuario
+- ✅ Usa un analizador de expresiones seguro como [math.js](https://mathjs.org/) o [expr-eval](https://www.npmjs.com/package/expr-eval)
 
-### Memory Limitations
+### Limitaciones de Memoria
 
-- History is stored in memory and limited to 100 calculations
-- Data is lost when the server restarts
-- For production, use a database like SQLite, PostgreSQL, or MongoDB
+- El historial se almacena en memoria y está limitado a 100 cálculos
+- Los datos se pierden cuando se reinicia el servidor
+- Para producción, usa una base de datos como SQLite, PostgreSQL o MongoDB
 
-## 📚 Next Steps
+## 📚 Próximos Pasos
 
-After completing this example:
+Después de completar este ejemplo:
 
-1. **Add more tools**: Implement subtract, divide, modulo operations
-2. **Persistent storage**: Store history in a database
-3. **Advanced features**: Add support for scientific functions (sin, cos, log)
-4. **Resources**: Expose calculation statistics as MCP resources
-5. **Error handling**: Improve validation and error messages
-6. **Move to next example**: Explore more complex MCP server patterns
+1. **Añade más herramientas**: Implementa operaciones de resta, división, módulo
+2. **Almacenamiento persistente**: Guarda el historial en una base de datos
+3. **Características avanzadas**: Añade soporte para funciones científicas (sin, cos, log)
+4. **Recursos**: Exponer estadísticas de cálculos como recursos MCP
+5. **Manejo de errores**: Mejorar la validación y los mensajes de error
+6. **Ir al siguiente ejemplo**: Explorar patrones más complejos de servidor MCP
 
-## 📖 Additional Resources
+## 📖 Recursos Adicionales
 
-- [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-- [Fast-MCP GitHub Repository](https://github.com/punkpeye/fast-mcp)
-- [MCP Specification](https://spec.modelcontextprotocol.io/)
-- [Claude Desktop MCP Guide](https://docs.anthropic.com/claude/docs/model-context-protocol)
-- [Workshop Full Documentation](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/mcp-servers)
+- [Documentación de Model Context Protocol](https://modelcontextprotocol.io/)
+- [Repositorio GitHub de Fast-MCP](https://github.com/punkpeye/fast-mcp)
+- [Especificación MCP](https://spec.modelcontextprotocol.io/)
+- [Guía de MCP de Claude Desktop](https://docs.anthropic.com/claude/docs/model-context-protocol)
+- [Documentación Completa del Taller](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/mcp-servers)
 
-## 🤝 Contributing
+## 🤝 Contribuir
 
-Found a bug or want to improve this example? Contributions are welcome! Please check the main repository for contribution guidelines.
+¿Encontraste un error o quieres mejorar este ejemplo? ¡Las contribuciones son bienvenidas! Por favor, consulta el repositorio principal para las pautas de contribución.
 
-## 📄 License
+## 📄 Licencia
 
-MIT License - See LICENSE file for details
+Licencia MIT - Ver archivo LICENSE para detalles
 
 ---
 
-**Part of the Código Sin Siesta AI Agents & MCP Workshop**
+**Parte del Taller de Agentes de IA y MCP de Código Sin Siesta**
 
-[← Back to Workshop](../) | [← Previous: Research Agent](../02-agente-investigador/)
+[← Volver al Taller](../) | [← Anterior: Agente de Investigación](../02-agente-investigador/)

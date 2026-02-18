@@ -1,86 +1,86 @@
-# Taller: AI Agents & Model Context Protocol
+# Taller: Agentes de IA y Model Context Protocol
 
-This section contains complete working examples from our AI Agents and Model Context Protocol workshop. Each example builds on previous concepts, guiding you through creating intelligent agents using Claude and the MCP.
+Esta sección contiene ejemplos de código funcionales completos de nuestro taller de Agentes de IA y Model Context Protocol. Cada ejemplo se basa en conceptos anteriores, guiándote a través de la creación de agentes inteligentes usando Claude y MCP.
 
-## 📚 Examples
+## 📚 Ejemplos
 
-### [01-agente-tareas](./01-agente-tareas/) - Task Management Agent
-Build a task management agent with memory capabilities. Learn how to:
-- Create structured tools for task CRUD operations
-- Implement agent memory and context
-- Handle user interactions with Claude
+### [01-agente-tareas](./01-agente-tareas/) - Agente de Gestión de Tareas
+Construye un agente de gestión de tareas con capacidades de memoria. Aprende a:
+- Crear herramientas estructuradas para operaciones CRUD de tareas
+- Implementar memoria y contexto del agente
+- Manejar interacciones de usuario con Claude
 
-### [02-agente-investigador](./02-agente-investigador/) - Research Agent
-Develop a research agent that can search the web and synthesize information. Topics covered:
-- Web search integration
-- Information synthesis
-- Multi-step reasoning
+### [02-agente-investigador](./02-agente-investigador/) - Agente de Investigación
+Desarrolla un agente de investigación que puede buscar en la web y sintetizar información. Temas cubiertos:
+- Integración de búsqueda web
+- Síntesis de información
+- Razonamiento de múltiples pasos
 
-### [03-mcp-servers](./03-mcp-servers/) - MCP Server Implementation
-Create your own Model Context Protocol server. You'll learn:
-- MCP architecture and standards
-- Server setup and configuration
-- Tool registration and handling
+### [03-mcp-servers](./03-mcp-servers/) - Implementación de Servidor MCP
+Crea tu propio servidor Model Context Protocol. Aprenderás:
+- Arquitectura y estándares de MCP
+- Configuración y puesta en marcha del servidor
+- Registro y manejo de herramientas
 
-## 🚀 Getting Started
+## 🚀 Comenzando
 
-Each example directory contains:
-- **README.md** with detailed setup instructions
-- **package.json** with all dependencies
-- **.env.example** with required environment variables
-- Complete, runnable source code
+Cada directorio de ejemplo contiene:
+- **README.md** con instrucciones detalladas de configuración
+- **package.json** con todas las dependencias
+- **.env.example** con las variables de entorno requeridas
+- Código fuente completo y ejecutable
 
-### Prerequisites
+### Requisitos Previos
 
-- Node.js 20.0 or higher
-- npm or yarn
-- Anthropic API key (get one at https://console.anthropic.com)
+- Node.js 20.0 o superior
+- npm o yarn
+- Clave de API de Anthropic (obtén una en https://console.anthropic.com)
 
-### Quick Start
+### Inicio Rápido
 
-1. Navigate to an example:
+1. Navega a un ejemplo:
    ```bash
    cd 01-agente-tareas
    ```
 
-2. Install dependencies:
+2. Instala las dependencias:
    ```bash
    npm install
    ```
 
-3. Configure environment:
+3. Configura el entorno:
    ```bash
    cp .env.example .env
-   # Edit .env and add your API keys
+   # Edita .env y añade tus claves de API
    ```
 
-4. Run the example:
+4. Ejecuta el ejemplo:
    ```bash
    npm start
    ```
 
-## 📖 Documentation
+## 📖 Documentación
 
-For detailed explanations and step-by-step tutorials, visit:
-- [Workshop Overview](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/)
-- [Task Agent Tutorial](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/agente-tareas)
-- [Research Agent Tutorial](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/agente-investigador)
-- [MCP Servers Tutorial](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/mcp-servers)
+Para explicaciones detalladas y tutoriales paso a paso, visita:
+- [Visión General del Taller](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/)
+- [Tutorial del Agente de Tareas](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/agente-tareas)
+- [Tutorial del Agente de Investigación](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/agente-investigador)
+- [Tutorial de Servidores MCP](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/mcp-servers)
 
-## 💡 Learning Path
+## 💡 Ruta de Aprendizaje
 
-We recommend following the examples in order:
+Recomendamos seguir los ejemplos en orden:
 
-1. **Start with the Task Agent** to understand basic agent structure and tools
-2. **Move to the Research Agent** to learn about external integrations
-3. **Finish with MCP Servers** to understand the protocol layer
+1. **Comienza con el Agente de Tareas** para entender la estructura básica del agente y las herramientas
+2. **Pasa al Agente de Investigación** para aprender sobre integraciones externas
+3. **Termina con Servidores MCP** para entender la capa del protocolo
 
-Each example includes inline comments and documentation to guide you through the code.
+Cada ejemplo incluye comentarios en línea y documentación para guiarte a través del código.
 
-## 🤝 Need Help?
+## 🤝 ¿Necesitas Ayuda?
 
-- Check the [documentation](https://codigosinsiesta.com/docs)
-- Review the README in each example directory
-- Open an issue if you find bugs or have questions
+- Consulta la [documentación](https://codigosinsiesta.com/docs)
+- Revisa el README en cada directorio de ejemplo
+- Abre un issue si encuentras errores o tienes preguntas
 
-Happy coding! 🎉
+¡Feliz programación! 🎉

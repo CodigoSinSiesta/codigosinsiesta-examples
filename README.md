@@ -1,145 +1,145 @@
-# Código Sin Siesta - Examples Repository
+# Código Sin Siesta - Repositorio de Ejemplos
 
-Welcome to the companion code repository for [Código Sin Siesta](https://codigosinsiesta.com)! 🚀
+¡Bienvenido al repositorio de código complementario para [Código Sin Siesta](https://codigosinsiesta.com)! 🚀
 
-This repository contains all the working code examples from our documentation and blog posts. Each example is organized by topic with complete setup instructions, dependencies, and runnable code.
+Este repositorio contiene todos los ejemplos de código funcionales de nuestra documentación y publicaciones del blog. Cada ejemplo está organizado por tema con instrucciones completas de configuración, dependencias y código ejecutable.
 
-## 📑 Table of Contents
+## 📑 Tabla de Contenidos
 
-- [What's Inside](#-whats-inside)
-  - [AI Agents & MCP Workshop](#-ai-agents--mcp-workshop)
-  - [AI Architecture](#️-ai-architecture)
-  - [Tools & Utilities](#-tools--utilities)
-- [Getting Started](#-getting-started)
-- [Documentation](#-documentation)
-- [Prerequisites](#-prerequisites)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Links](#-links)
+- [Qué Contiene](#-qué-contiene)
+  - [Taller de Agentes de IA y MCP](#-taller-de-agentes-de-ia-y-mcp)
+  - [Arquitectura de IA](#️-arquitectura-de-ia)
+  - [Herramientas y Utilidades](#-herramientas-y-utilidades)
+- [Comenzando](#-comenzando)
+- [Documentación](#-documentación)
+- [Requisitos Previos](#-requisitos-previos)
+- [Contribuir](#-contribuir)
+- [Licencia](#-licencia)
+- [Enlaces](#-enlaces)
 
-## 📚 What's Inside
+## 📚 Qué Contiene
 
-All examples are organized by topic to match the documentation structure:
+Todos los ejemplos están organizados por tema para coincidir con la estructura de la documentación:
 
-### 🤖 AI Agents & MCP Workshop
+### 🤖 Taller de Agentes de IA y MCP
 
-Complete examples from our AI Agents and Model Context Protocol workshop:
+Ejemplos completos de nuestro taller de Agentes de IA y Model Context Protocol:
 
-- **[01-agente-tareas](./taller-ia-agentes-mcp/01-agente-tareas/)** - Task management agent with memory
-- **[02-agente-investigador](./taller-ia-agentes-mcp/02-agente-investigador/)** - Research agent with web search
-- **[03-mcp-servers](./taller-ia-agentes-mcp/03-mcp-servers/)** - Model Context Protocol server implementation
+- **[01-agente-tareas](./taller-ia-agentes-mcp/01-agente-tareas/)** - Agente de gestión de tareas con memoria
+- **[02-agente-investigador](./taller-ia-agentes-mcp/02-agente-investigador/)** - Agente de investigación con búsqueda web
+- **[03-mcp-servers](./taller-ia-agentes-mcp/03-mcp-servers/)** - Implementación del servidor Model Context Protocol
 
-📖 **[View Workshop Guide →](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/)**
+📖 **[Ver Guía del Taller →](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/)**
 
-### 🏗️ AI Architecture
+### 🏗️ Arquitectura de IA
 
-Examples demonstrating AI system architecture patterns and best practices for production systems.
+Ejemplos que demuestran patrones de arquitectura de sistemas de IA y mejores prácticas para sistemas de producción.
 
-**[Browse AI Architecture Examples →](./arquitectura-ia/)**
+**[Ver Ejemplos de Arquitectura de IA →](./arquitectura-ia/)**
 
-Topics covered:
-- Agent orchestration patterns
-- Prompt management and versioning
-- Error handling and retry strategies
-- Cost optimization techniques
-- Performance monitoring
+Temas cubiertos:
+- Patrones de orquestación de agentes
+- Gestión y versionado de prompts
+- Manejo de errores y estrategias de reintentos
+- Técnicas de optimización de costos
+- Monitoreo de rendimiento
 
-### 🔧 Tools & Utilities
+### 🔧 Herramientas y Utilidades
 
-Practical tool implementations, utilities, and helper libraries for AI development.
+Implementaciones de herramientas prácticas, utilidades y bibliotecas auxiliares para el desarrollo de IA.
 
-**[Explore Tools & Utilities →](./herramientas/)**
+**[Explorar Herramientas y Utilidades →](./herramientas/)**
 
-Includes:
-- CLI tools for AI workflows
-- Reusable helper libraries
-- Integration scripts
-- Development utilities
+Incluye:
+- Herramientas de CLI para flujos de trabajo de IA
+- Bibliotecas auxiliares reutilizables
+- Scripts de integración
+- Utilidades de desarrollo
 
-## 🚀 Getting Started
+## 🚀 Comenzando
 
-Each example directory contains:
+Cada directorio de ejemplo contiene:
 
-- **README.md** - Setup instructions and explanation
-- **package.json** - Dependencies and scripts
-- **.env.example** - Required environment variables
-- **Complete source code** - Ready to run
+- **README.md** - Instrucciones de configuración y explicación
+- **package.json** - Dependencias y scripts
+- **.env.example** - Variables de entorno requeridas
+- **Código fuente completo** - Listo para ejecutar
 
-### Quick Start
+### Inicio Rápido
 
-1. Clone this repository:
+1. Clona este repositorio:
    ```bash
    git clone https://github.com/codigosinsiesta/codigosinsiesta-examples.git
    cd codigosinsiesta-examples
    ```
 
-2. Navigate to an example:
+2. Navega a un ejemplo:
    ```bash
    cd taller-ia-agentes-mcp/01-agente-tareas
    ```
 
-3. Follow the README in that directory for setup instructions
+3. Sigue el README en ese directorio para las instrucciones de configuración
 
-## 📁 Repository Structure
+## 📁 Estructura del Repositorio
 
 ```
 codigosinsiesta-examples/
-├── taller-ia-agentes-mcp/      # AI Agents & MCP Workshop
-│   ├── 01-agente-tareas/       # Task management agent
-│   ├── 02-agente-investigador/ # Research agent
-│   └── 03-mcp-servers/         # MCP server implementation
-├── arquitectura-ia/            # AI Architecture patterns
-└── herramientas/               # Tools & utilities
+├── taller-ia-agentes-mcp/      # Taller de Agentes de IA y MCP
+│   ├── 01-agente-tareas/       # Agente de gestión de tareas
+│   ├── 02-agente-investigador/ # Agente de investigación
+│   └── 03-mcp-servers/         # Implementación del servidor MCP
+├── arquitectura-ia/            # Patrones de Arquitectura de IA
+└── herramientas/               # Herramientas y utilidades
 ```
 
-## 📖 Documentation
+## 📖 Documentación
 
-For detailed explanations and tutorials, visit:
+Para explicaciones detalladas y tutoriales, visita:
 
-- **[Main Site](https://codigosinsiesta.com)** - Home page and latest updates
-- **[Documentation](https://codigosinsiesta.com/docs)** - Complete technical documentation
-- **[AI Agents Workshop](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/)** - Workshop guide and tutorials
-- **[AI Architecture](https://codigosinsiesta.com/docs/categoria/arquitectura-ia)** - Architecture patterns and best practices
-- **[Tools & Utilities](https://codigosinsiesta.com/docs/categoria/herramientas)** - Tool development guides
-- **[Blog](https://codigosinsiesta.com/blog)** - Latest articles and updates
+- **[Sitio Principal](https://codigosinsiesta.com)** - Página de inicio y últimas actualizaciones
+- **[Documentación](https://codigosinsiesta.com/docs)** - Documentación técnica completa
+- **[Taller de Agentes de IA](https://codigosinsiesta.com/docs/proyectos/taller-ia-agentes-mcp/)** - Guía del taller y tutoriales
+- **[Arquitectura de IA](https://codigosinsiesta.com/docs/categoria/arquitectura-ia)** - Patrones de arquitectura y mejores prácticas
+- **[Herramientas y Utilidades](https://codigosinsiesta.com/docs/categoria/herramientas)** - Guías de desarrollo de herramientas
+- **[Blog](https://codigosinsiesta.com/blog)** - Últimos artículos y actualizaciones
 
-## 💡 Prerequisites
+## 💡 Requisitos Previos
 
-Most examples require:
+La mayoría de los ejemplos requieren:
 
-- **Node.js** 20.0 or higher
-- **npm** or **yarn** package manager
-- **API keys** for AI services (Anthropic, OpenAI, etc.)
+- **Node.js** 20.0 o superior
+- **npm** o **yarn** como gestor de paquetes
+- **Claves de API** para servicios de IA (Anthropic, OpenAI, etc.)
 
-Specific requirements are listed in each example's README.
+Los requisitos específicos se indican en el README de cada ejemplo.
 
-## ❓ Need Help?
+## ❓ ¿Necesitas Ayuda?
 
-- **Questions?** Check the [documentation](https://codigosinsiesta.com/docs) first
-- **Issues?** Open an [issue](https://github.com/codigosinsiesta/codigosinsiesta-examples/issues) on GitHub
-- **Suggestions?** We'd love to hear your ideas!
+- **¿Preguntas?** Consulta primero la [documentación](https://codigosinsiesta.com/docs)
+- **¿Problemas?** Abre un [issue](https://github.com/codigosinsiesta/codigosinsiesta-examples/issues) en GitHub
+- **¿Sugerencias?** ¡Nos encantaría escuchar tus ideas!
 
-## 🤝 Contributing
+## 🤝 Contribuir
 
-Found a bug or want to improve an example? Contributions are welcome!
+¿Encontraste un error o quieres mejorar un ejemplo? ¡Las contribuciones son bienvenidas!
 
-1. Fork this repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+1. Haz un fork de este repositorio
+2. Crea una rama de características
+3. Realiza tus cambios
+4. Envía un pull request
 
-Please ensure your code follows the existing patterns and includes appropriate documentation.
+Asegúrate de que tu código siga los patrones existentes e incluya la documentación adecuada.
 
-## 📝 License
+## 📝 Licencia
 
-MIT License - feel free to use these examples in your own projects!
+Licencia MIT - ¡siéntete libre de usar estos ejemplos en tus propios proyectos!
 
-## 🔗 Links
+## 🔗 Enlaces
 
-- [Código Sin Siesta Website](https://codigosinsiesta.com)
-- [Documentation](https://codigosinsiesta.com/docs)
+- [Sitio Web de Código Sin Siesta](https://codigosinsiesta.com)
+- [Documentación](https://codigosinsiesta.com/docs)
 - [Blog](https://codigosinsiesta.com/blog)
 
 ---
 
-Happy coding! 🎉
+¡Feliz programación! 🎉
