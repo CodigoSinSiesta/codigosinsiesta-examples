@@ -31,7 +31,7 @@ To run the server:
 The server will start in STDIO mode, waiting for MCP protocol messages.
 For interactive testing, use the MCP Inspector:
 
-  npx @modelcontextprotocol/inspector npx -y tsx src/server.ts
+  npx @modelcontextprotocol/inspector npx -y tsx src/basic.ts
 
 To integrate with Claude Desktop, add this to your config:
 
@@ -39,7 +39,7 @@ To integrate with Claude Desktop, add this to your config:
     "mcpServers": {
       "calculator": {
         "command": "npx",
-        "args": ["-y", "tsx", "/absolute/path/to/03-mcp-servers/src/server.ts"]
+        "args": ["-y", "tsx", "/absolute/path/to/03-mcp-servers/src/basic.ts"]
       }
     }
   }
