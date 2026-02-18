@@ -1,25 +1,25 @@
 {
   "active": true,
-  "spec": "001-cambio-de-idioma",
+  "spec": "002-quick-start-setup-5-minutes",
   "state": "building",
   "subtasks": {
     "completed": 1,
-    "total": 2,
+    "total": 10,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Localizaci\u00f3n a Espa\u00f1ol",
-    "id": 1,
-    "total": 2
+    "current": "Root Setup Infrastructure",
+    "id": null,
+    "total": 4
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 2,
-    "started_at": "2026-02-18T19:59:09.024870"
+    "number": 3,
+    "started_at": "2026-02-18T21:22:19.538533"
   },
-  "last_update": "2026-02-18T20:03:08.816227"
+  "last_update": "2026-02-18T21:28:47.974888"
 }
