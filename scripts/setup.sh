@@ -44,6 +44,31 @@ print_info() {
     echo -e "${BLUE}ℹ️${NC} $1"
 }
 
+# Portable in-place sed replacement
+# Usage: portable_sed_replace "pattern" "replacement" "file"
+portable_sed_replace() {
+    local pattern="$1"
+    local replacement="$2"
+    local file="$3"
+    local temp_file="${file}.tmp.$$"
+    
+    # Create temp file with modified content
+    if sed -e "${pattern}${replacement}" "$file" > "$temp_file"; then
+        # Atomically replace the original file
+        if mv "$temp_file" "$file"; then
+            return 0
+        else
+            print_error "Failed to replace file: $file"
+            rm -f "$temp_file"
+            return 1
+        fi
+    else
+        print_error "Failed to apply sed pattern to file: $file"
+        rm -f "$temp_file"
+        return 1
+    fi
+}
+
 # Show usage
 show_help() {
     cat << EOF
@@ -211,11 +236,13 @@ for example_dir in "${EXAMPLE_DIRS[@]}"; do
         # Check if the file has the placeholder or empty API key
         if grep -q "ANTHROPIC_API_KEY=your_anthropic_api_key_here" "$env_file" || ! grep -q "ANTHROPIC_API_KEY=sk-" "$env_file"; then
             # Update the file with the new API key
-            sed -i.tmp "s|^ANTHROPIC_API_KEY=.*|ANTHROPIC_API_KEY=${API_KEY}|" "$env_file" 2>/dev/null || \
-                sed -e "s|^ANTHROPIC_API_KEY=.*|ANTHROPIC_API_KEY=${API_KEY}|" "$env_file" > "$env_file.tmp" && mv "$env_file.tmp" "$env_file"
-            rm -f "${env_file}.tmp"
-            print_success "Updated ${example_dir}/.env"
-            ((created_count++))
+            if portable_sed_replace "s|^ANTHROPIC_API_KEY=.*|" "ANTHROPIC_API_KEY=${API_KEY}|" "$env_file"; then
+                print_success "Updated ${example_dir}/.env"
+                ((created_count++))
+            else
+                print_error "Failed to update ${example_dir}/.env"
+                exit 1
+            fi
         else
             print_info "Keeping existing ${example_dir}/.env (API key already set)"
             ((skipped_count++))
@@ -223,11 +250,13 @@ for example_dir in "${EXAMPLE_DIRS[@]}"; do
     else
         # Create .env from .env.example
         cp "$env_example" "$env_file"
-        sed -i.tmp "s|^ANTHROPIC_API_KEY=.*|ANTHROPIC_API_KEY=${API_KEY}|" "$env_file" 2>/dev/null || \
-            sed -e "s|^ANTHROPIC_API_KEY=.*|ANTHROPIC_API_KEY=${API_KEY}|" "$env_file" > "$env_file.tmp" && mv "$env_file.tmp" "$env_file"
-        rm -f "${env_file}.tmp"
-        print_success "Created ${example_dir}/.env"
-        ((created_count++))
+        if portable_sed_replace "s|^ANTHROPIC_API_KEY=.*|" "ANTHROPIC_API_KEY=${API_KEY}|" "$env_file"; then
+            print_success "Created ${example_dir}/.env"
+            ((created_count++))
+        else
+            print_error "Failed to update ${example_dir}/.env"
+            exit 1
+        fi
     fi
 done
 
