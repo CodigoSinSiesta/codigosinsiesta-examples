@@ -45,15 +45,15 @@ print_info() {
 }
 
 # Portable in-place sed replacement
-# Usage: portable_sed_replace "pattern" "replacement" "file"
+# Usage: portable_sed_replace "sed_expression" "file"
+# Example: portable_sed_replace "s|pattern|replacement|" "file.txt"
 portable_sed_replace() {
-    local pattern="$1"
-    local replacement="$2"
-    local file="$3"
+    local sed_expr="$1"
+    local file="$2"
     local temp_file="${file}.tmp.$$"
     
     # Create temp file with modified content
-    if sed -e "${pattern}${replacement}" "$file" > "$temp_file"; then
+    if sed -e "$sed_expr" "$file" > "$temp_file"; then
         # Atomically replace the original file
         if mv "$temp_file" "$file"; then
             return 0
@@ -236,7 +236,7 @@ for example_dir in "${EXAMPLE_DIRS[@]}"; do
         # Check if the file has the placeholder or empty API key
         if grep -q "ANTHROPIC_API_KEY=your_anthropic_api_key_here" "$env_file" || ! grep -q "ANTHROPIC_API_KEY=sk-" "$env_file"; then
             # Update the file with the new API key
-            if portable_sed_replace "s|^ANTHROPIC_API_KEY=.*|" "ANTHROPIC_API_KEY=${API_KEY}|" "$env_file"; then
+            if portable_sed_replace "s|^ANTHROPIC_API_KEY=.*|ANTHROPIC_API_KEY=${API_KEY}|" "$env_file"; then
                 print_success "Updated ${example_dir}/.env"
                 ((created_count++))
             else
@@ -250,7 +250,7 @@ for example_dir in "${EXAMPLE_DIRS[@]}"; do
     else
         # Create .env from .env.example
         cp "$env_example" "$env_file"
-        if portable_sed_replace "s|^ANTHROPIC_API_KEY=.*|" "ANTHROPIC_API_KEY=${API_KEY}|" "$env_file"; then
+        if portable_sed_replace "s|^ANTHROPIC_API_KEY=.*|ANTHROPIC_API_KEY=${API_KEY}|" "$env_file"; then
             print_success "Created ${example_dir}/.env"
             ((created_count++))
         else
