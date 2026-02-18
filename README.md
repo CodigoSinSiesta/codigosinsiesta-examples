@@ -10,7 +10,7 @@ Este repositorio contiene todos los ejemplos de código funcionales de nuestra d
   - [Taller de Agentes de IA y MCP](#-taller-de-agentes-de-ia-y-mcp)
   - [Arquitectura de IA](#️-arquitectura-de-ia)
   - [Herramientas y Utilidades](#-herramientas-y-utilidades)
-- [Comenzando](#-comenzando)
+- [Quick Start](#-quick-start-5-minutes)
 - [Documentación](#-documentación)
 - [Requisitos Previos](#-requisitos-previos)
 - [Contribuir](#-contribuir)
@@ -56,40 +56,65 @@ Incluye:
 - Scripts de integración
 - Utilidades de desarrollo
 
-## 🚀 Comenzando
+## 🚀 Quick Start (5 Minutes)
 
-Cada directorio de ejemplo contiene:
+### Prerequisites
 
-- **README.md** - Instrucciones de configuración y explicación
-- **package.json** - Dependencias y scripts
-- **.env.example** - Variables de entorno requeridas
-- **Código fuente completo** - Listo para ejecutar
+- **Node.js** 20.0 or higher
+- **npm** or **yarn** as package manager
+- **Git** for cloning the repository
+- **API keys** for AI services (Anthropic, OpenAI, etc.) - specific requirements listed in each example
 
-### Inicio Rápido
+### Installation
 
-1. Clona este repositorio:
+1. Clone the repository:
    ```bash
    git clone https://github.com/codigosinsiesta/codigosinsiesta-examples.git
    cd codigosinsiesta-examples
    ```
 
-2. Navega a un ejemplo:
+2. Navigate to an example (e.g., Task Management Agent):
    ```bash
    cd taller-ia-agentes-mcp/01-agente-tareas
    ```
 
-3. Sigue el README en ese directorio para las instrucciones de configuración
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## 📁 Estructura del Repositorio
+4. Configure environment variables:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your API keys
+   ```
+
+5. Run the example:
+   ```bash
+   npm start
+   ```
+
+That's it! You're ready to explore the examples.
+
+## 📁 Repository Structure
+
+Each example directory contains:
+
+- **README.md** - Setup instructions and detailed explanation
+- **package.json** - Dependencies and scripts
+- **.env.example** - Required environment variables template
+- **Source code** - Ready to run
+
+## 📁 Repository Structure
 
 ```
 codigosinsiesta-examples/
-├── taller-ia-agentes-mcp/      # Taller de Agentes de IA y MCP
-│   ├── 01-agente-tareas/       # Agente de gestión de tareas
-│   ├── 02-agente-investigador/ # Agente de investigación
-│   └── 03-mcp-servers/         # Implementación del servidor MCP
-├── arquitectura-ia/            # Patrones de Arquitectura de IA
-└── herramientas/               # Herramientas y utilidades
+├── taller-ia-agentes-mcp/      # AI Agents & MCP Workshop
+│   ├── 01-agente-tareas/       # Task Management Agent
+│   ├── 02-agente-investigador/ # Research Agent
+│   └── 03-mcp-servers/         # MCP Server Implementation
+├── arquitectura-ia/            # AI Architecture Patterns
+└── herramientas/               # Tools & Utilities
 ```
 
 ## 📖 Documentación
