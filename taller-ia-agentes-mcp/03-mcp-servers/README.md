@@ -42,7 +42,12 @@ Un servidor Model Context Protocol (MCP) que proporciona herramientas de calcula
 
 ### Ejecutar el Servidor
 
-**Modo independiente** (para pruebas):
+**Modo rápido** (ejemplo básico):
+```bash
+npm run start:basic
+```
+
+**Modo completo** (todas las herramientas):
 ```bash
 npm start
 ```

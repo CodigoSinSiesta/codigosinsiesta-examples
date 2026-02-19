@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "tsx src/server.ts",
+    "start:basic": "tsx src/basic.ts",
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit"
