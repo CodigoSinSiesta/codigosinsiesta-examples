@@ -3,49 +3,49 @@ import { z } from 'zod';
 // Tool definitions for MCP server
 export const addTool = {
   name: 'add',
-  description: 'Add two numbers together',
+  description: 'Sumar dos números',
   parameters: z.object({
-    a: z.number().describe('First number'),
-    b: z.number().describe('Second number')
+    a: z.number().describe('Primer número'),
+    b: z.number().describe('Segundo número')
   }),
   execute: async ({ a, b }: { a: number; b: number }) => {
     const result = a + b;
-    return `Result: ${a} + ${b} = ${result}`;
+    return `Resultado: ${a} + ${b} = ${result}`;
   }
 };
 
 export const multiplyTool = {
   name: 'multiply',
-  description: 'Multiply two numbers',
+  description: 'Multiplicar dos números',
   parameters: z.object({
-    a: z.number().describe('First number'),
-    b: z.number().describe('Second number')
+    a: z.number().describe('Primer número'),
+    b: z.number().describe('Segundo número')
   }),
   execute: async ({ a, b }: { a: number; b: number }) => {
     const result = a * b;
-    return `Result: ${a} × ${b} = ${result}`;
+    return `Resultado: ${a} × ${b} = ${result}`;
   }
 };
 
 export const powerTool = {
   name: 'power',
-  description: 'Calculate power (a^b)',
+  description: 'Calcular potencia (a^b)',
   parameters: z.object({
-    base: z.number().describe('Base number'),
-    exponent: z.number().describe('Exponent (integer)'),
-    validate: z.boolean().optional().default(true).describe('Validate inputs')
+    base: z.number().describe('Número base'),
+    exponent: z.number().describe('Exponente (entero)'),
+    validate: z.boolean().optional().default(true).describe('Validar entradas')
   }),
   execute: async ({ base, exponent, validate }: { base: number; exponent: number; validate?: boolean }) => {
     if (validate && !Number.isInteger(exponent)) {
-      throw new Error('Exponent must be an integer');
+      throw new Error('El exponente debe ser un entero');
     }
 
     if (validate && exponent < 0) {
-      throw new Error('Negative exponents not supported');
+      throw new Error('Los exponentes negativos no están soportados');
     }
 
     const result = Math.pow(base, exponent);
-    return `Result: ${base}^${exponent} = ${result}`;
+    return `Resultado: ${base}^${exponent} = ${result}`;
   }
 };
 
@@ -60,10 +60,10 @@ export let calculationHistory: Array<{
 
 export const calculateTool = {
   name: 'calculate',
-  description: 'Perform a calculation and store in history',
+  description: 'Realizar un cálculo y guardarlo en el historial',
   parameters: z.object({
-    expression: z.string().describe('Mathematical expression (e.g., "2 + 3 * 4")'),
-    description: z.string().optional().describe('Description of the calculation')
+    expression: z.string().describe('Expresión matemática (ej: "2 + 3 * 4")'),
+    description: z.string().optional().describe('Descripción del cálculo')
   }),
   execute: async ({ expression, description }: { expression: string; description?: string }) => {
     try {
@@ -71,7 +71,7 @@ export const calculateTool = {
       const result = eval(expression);
 
       if (typeof result !== 'number' || !isFinite(result)) {
-        throw new Error('Invalid calculation result');
+        throw new Error('Resultado de cálculo inválido');
       }
 
       // Registrar en historial
@@ -90,20 +90,20 @@ export const calculateTool = {
         calculationHistory = calculationHistory.slice(-100);
       }
 
-      return `Calculation complete: ${expression} = ${result}\nID: ${calculation.id}\nHistory URI: calculator://history`;
+      return `Cálculo completado: ${expression} = ${result}\nID: ${calculation.id}\nURI del historial: calculator://history`;
 
     } catch (error) {
-      throw new Error(`Calculation failed: ${(error as Error).message}`);
+      throw new Error(`Error en el cálculo: ${(error as Error).message}`);
     }
   }
 };
 
 export const getHistoryTool = {
   name: 'get_history',
-  description: 'Get calculation history',
+  description: 'Obtener historial de cálculos',
   parameters: z.object({
-    limit: z.number().min(1).max(50).optional().default(10).describe('Number of recent calculations to return'),
-    operation: z.string().optional().describe('Filter by operation type')
+    limit: z.number().min(1).max(50).optional().default(10).describe('Número de cálculos recientes a devolver'),
+    operation: z.string().optional().describe('Filtrar por tipo de operación')
   }),
   execute: async ({ limit, operation }: { limit?: number; operation?: string }) => {
     let filtered = calculationHistory;
@@ -121,6 +121,6 @@ export const getHistoryTool = {
       `${calc.id}: ${calc.operation} = ${calc.result} (${calc.timestamp.toISOString()})`
     ).join('\n');
 
-    return `Calculation History (${filtered.length} total${operation ? ', filtered' : ''}):\n${historyText || 'No calculations found'}`;
+    return `Historial de cálculos (${filtered.length} total${operation ? ', filtrado' : ''}):\n${historyText || 'No se encontraron cálculos'}`;
   }
 };

@@ -49,7 +49,7 @@ An advanced AI agent that conducts comprehensive research using the **Plan-Execu
 ### Run the Agent
 
 ```bash
-npm start
+npm run start:basic
 ```
 
 ## 💬 Usage Examples

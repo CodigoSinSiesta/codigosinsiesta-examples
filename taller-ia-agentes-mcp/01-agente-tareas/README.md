@@ -46,6 +46,12 @@ A simple yet powerful task management agent built with Claude AI. This example d
 
 ### Run the Agent
 
+**Quick start (recommended):**
+```bash
+npm install && npm run start:basic
+```
+
+Or if you've already installed dependencies:
 ```bash
 npm start
 ```
